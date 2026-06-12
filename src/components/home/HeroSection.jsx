@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
 
 const HeroSection = () => {
   const headlineRef = useRef(null);
@@ -8,7 +7,6 @@ const HeroSection = () => {
   useEffect(() => {
     const el = headlineRef.current;
     if (!el) return;
-    // Stagger lines animation
     const lines = el.querySelectorAll('.hero-line');
     lines.forEach((line, i) => {
       line.style.transitionDelay = `${i * 0.15}s`;
@@ -19,18 +17,14 @@ const HeroSection = () => {
   return (
     <section
       className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: '#090909' }}
+      style={{ background: '#000000' }}
     >
-
-      {/* Radial red glow — top left */}
+      {/* Subtle dark texture overlay */}
       <div
-        className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full opacity-[0.06] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #810100 0%, transparent 65%)' }}
-      />
-      {/* Radial glow — bottom right */}
-      <div
-        className="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full opacity-[0.04] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #810100 0%, transparent 65%)' }}
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)',
+        }}
       />
 
       {/* Main content */}
@@ -40,66 +34,67 @@ const HeroSection = () => {
           {/* Left — Text */}
           <div ref={headlineRef} className="order-2 lg:order-1">
             <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-8 bg-cherry-500" />
-              <span className="text-[10px] text-zinc-500 tracking-[0.3em] uppercase font-medium">
+              <span className="h-px w-8 bg-white/40" />
+              <span
+                className="text-[10px] text-zinc-500 tracking-[0.3em] uppercase"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+              >
                 Professional Clothing Manufacturer
               </span>
             </div>
 
             <div className="overflow-hidden mb-2">
               <h1
-                className="hero-line text-[64px] sm:text-[80px] lg:text-[90px] xl:text-[100px] leading-none text-zinc-50"
-                style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+                className="hero-line text-[36px] sm:text-[46px] lg:text-[52px] xl:text-[60px] leading-none text-white"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
               >
                 SELAMAT DATANG
               </h1>
             </div>
-            <div className="overflow-hidden mb-8">
+            <div className="overflow-hidden mb-10">
               <h1
-                className="hero-line text-[64px] sm:text-[80px] lg:text-[90px] xl:text-[100px] leading-none text-cherry-500"
-                style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+                className="hero-line text-[36px] sm:text-[46px] lg:text-[52px] xl:text-[60px] leading-none text-white"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
               >
                 DI UPPERINK
               </h1>
             </div>
 
-            <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-10 max-w-md">
-              Mari Mewujudkan kualitas dan menjahit kepercayaan bersama <span className="text-zinc-50 font-semibold">UPPERINK</span>.
+            <p
+              className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-10 max-w-md"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+            >
+              Mari Mewujudkan kualitas dan menjahit kepercayaan bersama{' '}
+              <span className="text-white font-semibold">UPPERINK</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/produk" className="btn-primary">
+              <Link
+                to="/produk"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white text-sm uppercase tracking-[0.1em] transition-all duration-300 hover:bg-zinc-600"
+                style={{
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontWeight: 700,
+                  backgroundColor: '#3a3a3a',
+                  borderRadius: 0,
+                }}
+              >
                 Order Sekarang
-                <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
           {/* Right — Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[300px] lg:max-w-[340px] animate-float">
-              {/* Main image card */}
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  clipPath: 'polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))',
-                }}
-              >
+            <div className="relative w-full max-w-[320px] lg:max-w-[380px] animate-float">
+              {/* Main image */}
+              <div className="relative overflow-hidden">
                 <img
-                  src="/hero-print.jpg"
-                  alt="Upperink premium apparel production"
-                  className="w-full h-[340px] sm:h-[400px] object-cover"
+                  src="/hero-press-new.png"
+                  alt="Upperink clothing production"
+                  className="w-full h-[380px] sm:h-[440px] object-cover"
                 />
               </div>
-
-              {/* Red border accent */}
-              <div
-                className="absolute -inset-px pointer-events-none"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(129,1,0,0.5) 0%, transparent 40%, transparent 60%, rgba(129,1,0,0.2) 100%)',
-                  clipPath: 'polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))',
-                }}
-              />
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { generateOrderId, buildWhatsAppMessage, openWhatsApp } from '../utils/or
 import { createOrder } from '../services/orderService';
 import { COMPANY_INFO } from '../config/constants';
 import { formatFileSize } from '../utils/formatters';
+import WhatsAppIcon from '../components/common/WhatsAppIcon';
 
 // Step Indicator — Dark luxury style
 const StepIndicator = ({ current, steps }) => (
@@ -192,7 +193,7 @@ const OrderPage = () => {
             onClick={sendToWhatsApp}
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 transition-colors mb-3 flex items-center justify-center gap-2 text-sm uppercase tracking-wider cursor-pointer"
           >
-            <MessageCircle className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
             Konfirmasi via WhatsApp
           </button>
           

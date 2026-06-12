@@ -12,7 +12,17 @@ const getLocalOrders = () => {
     localStorage.setItem('upperink_orders', JSON.stringify(dummyOrders));
     return dummyOrders;
   }
-  return JSON.parse(local);
+  try {
+    const parsed = JSON.parse(local);
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      localStorage.setItem('upperink_orders', JSON.stringify(dummyOrders));
+      return dummyOrders;
+    }
+    return parsed;
+  } catch (e) {
+    localStorage.setItem('upperink_orders', JSON.stringify(dummyOrders));
+    return dummyOrders;
+  }
 };
 
 const saveLocalOrders = (orders) => {

@@ -63,7 +63,7 @@ const FeaturesSection = () => {
       {/* Background accent */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full opacity-10"
-        style={{ background: 'linear-gradient(to bottom, transparent, #810100, transparent)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, #ef2020, transparent)' }}
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -72,17 +72,23 @@ const FeaturesSection = () => {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="h-px w-8 bg-cherry-500" />
-              <span className="text-[10px] text-zinc-600 tracking-[0.3em] uppercase">Keunggulan Kami</span>
+              <span className="h-px w-8" style={{ background: '#ef2020' }} />
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+              >Keunggulan Kami</span>
             </div>
             <h2
               className="text-5xl sm:text-6xl text-zinc-50"
-              style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
             >
               MENGAPA UPPERINK?
             </h2>
           </div>
-          <p className="text-zinc-500 text-sm max-w-xs leading-relaxed sm:text-right">
+          <p
+            className="text-sm max-w-xs leading-relaxed sm:text-right"
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+          >
             Dipercaya ratusan brand dan bisnis lokal untuk kebutuhan konveksi premium.
           </p>
         </div>
@@ -98,14 +104,14 @@ const FeaturesSection = () => {
                 style={{ background: '#1A1819' }}
               >
                 {/* Hover red top border */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-cherry-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" style={{ background: '#ef2020' }} />
 
                 {/* Number */}
                 <div
                   className="text-6xl leading-none mb-6 select-none"
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
-                    WebkitTextStroke: '1px rgba(255,255,255,0.07)',
+                    WebkitTextStroke: '1.5px rgba(255,255,255,0.35)',
                     color: 'transparent',
                     letterSpacing: '0.05em',
                   }}
@@ -114,17 +120,23 @@ const FeaturesSection = () => {
                 </div>
 
                 {/* Icon */}
-                <div className="mb-5 text-cherry-500 group-hover:scale-110 transition-transform duration-300 origin-left">
+                <div className="mb-5 group-hover:scale-110 transition-transform duration-300 origin-left" style={{ color: '#ef2020' }}>
                   <Icon />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-zinc-50 mb-3 tracking-wide">
+                <h3
+                  className="text-lg mb-3 tracking-wide text-zinc-50"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+                >
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-zinc-500 text-sm leading-relaxed">
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+                >
                   {feature.desc}
                 </p>
               </div>

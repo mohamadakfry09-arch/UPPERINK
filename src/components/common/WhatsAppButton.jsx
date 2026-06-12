@@ -1,6 +1,7 @@
 import React from 'react';
 import { COMPANY_INFO } from '../../config/constants';
 import { createLead } from '../../services/leadService';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const generateLeadId = () => {
   const now = new Date();
@@ -10,16 +11,6 @@ const generateLeadId = () => {
   const random = String(Math.floor(Math.random() * 900) + 100);
   return `LID-${year}${month}${day}-${random}`;
 };
-
-const WhatsAppIcon = ({ className }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.76.458 3.473 1.332 4.986L2 22l5.234-1.373a9.932 9.932 0 0 0 4.778 1.218h.004c5.506 0 9.988-4.482 9.988-9.988C22 6.482 17.518 2 12.012 2zm0 18.286c-1.575 0-3.117-.424-4.47-1.226l-.32-.19-3.32.87.886-3.235-.208-.33a8.232 8.232 0 0 1-1.262-4.22c0-4.542 3.696-8.237 8.243-8.237 2.202 0 4.272.859 5.83 2.417a8.175 8.175 0 0 1 2.413 5.82c-.004 4.542-3.7 8.237-8.242 8.237zM16.53 13.9c-.248-.124-1.464-.722-1.692-.805-.226-.083-.393-.124-.557.124-.165.248-.639.805-.783.97-.144.166-.289.186-.537.062a7.618 7.618 0 0 1-3.267-2.01c-.815-.726-1.365-1.623-1.525-1.898-.16-.275-.017-.423.12-.56.124-.124.275-.32.413-.48.14-.16.186-.275.279-.459.093-.183.046-.344-.02-.48-.068-.138-.558-1.344-.764-1.84-.2-.48-.403-.414-.557-.422a4.423 4.423 0 0 0-.4-.008c-.138 0-.363.051-.553.26-.19.208-.727.711-.727 1.733 0 1.022.744 2.01.848 2.148.103.138 1.464 2.237 3.548 3.136.495.214.882.342 1.184.438.498.158.951.135 1.31.082.399-.059 1.464-.599 1.67-.1.207-.5.207-.929 0-1.116L16.53 13.9z" />
-  </svg>
-);
 
 const WhatsAppButton = () => {
   const number = COMPANY_INFO.whatsapp.replace(/\D/g, '');
@@ -77,10 +68,10 @@ const WhatsAppButton = () => {
         Hubungi Kami
         <div
           className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 rotate-45"
-          style={{ 
-            background: 'rgba(9, 9, 9, 0.85)', 
-            borderRight: '1px solid rgba(255, 255, 255, 0.08)', 
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)' 
+          style={{
+            background: 'rgba(9, 9, 9, 0.85)',
+            borderRight: '1px solid rgba(255, 255, 255, 0.08)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         />
       </div>

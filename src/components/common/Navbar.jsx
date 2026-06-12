@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 
 const Navbar = () => {
+  const navStyle = { fontFamily: "Helvetica, Arial, sans-serif", fontWeight: "bold" };
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -70,37 +71,40 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#090909]/95 backdrop-blur-md border-b border-zinc-900/50 shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#090909]/95 backdrop-blur-md border-b border-zinc-900/50 shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl w-full mx-auto px-6 lg:px-10">
-        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-24' : 'h-28'}`}>
+        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
-          <Link to="/" className="flex flex-col select-none group shrink-0">
-            <span className="font-bold text-4xl tracking-[0.05em] text-zinc-50 uppercase leading-none transition-all duration-300" style={{ fontFamily: "'Bebas Neue', Impact, sans-serif" }}>
-              UPPERINK
-            </span>
-            <span className="text-[11px] text-zinc-400/80 tracking-[0.15em] uppercase mt-2 leading-none font-semibold transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
-              Professional Clothing Manufacturer
-            </span>
+          <Link to="/" className="flex items-center gap-3 select-none group shrink-0">
+            <img
+              src="/logo-upperink.jpg"
+              alt="Upperink Logo"
+              className="w-9 h-9 rounded-full object-cover shrink-0"
+            />
+            <div className="flex flex-col">
+              <span className="font-bold text-3xl tracking-[0.05em] text-zinc-50 uppercase leading-none transition-all duration-300" style={{ fontFamily: "'Bebas Neue', Impact, sans-serif" }}>
+                UPPERINK
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav - Right Aligned */}
-          <nav className="hidden lg:flex items-center gap-10 xl:gap-12 ml-auto h-full">
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-10 ml-auto h-full">
             <Link
               to="/"
-              className={`text-[17px] tracking-wide transition-colors ${
-                location.pathname === '/' && !location.hash
+              className={`text-[15px] tracking-wide transition-colors ${location.pathname === '/' && !location.hash
                   ? 'text-zinc-50 font-bold'
                   : 'text-zinc-400 font-semibold hover:text-zinc-50'
-              }`}
+                }`}
+              style={navStyle}
             >
               Home
             </Link>
 
             {/* Panduan Dropdown */}
-            <div 
+            <div
               className="h-full flex items-center relative group"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -108,22 +112,21 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={handleButtonClick}
-                className={`flex items-center gap-1 text-[17px] tracking-wide transition-colors cursor-pointer ${
-                  location.pathname === '/size-chart' || location.pathname === '/tracking'
+                className={`flex items-center gap-1 text-[15px] tracking-wide transition-colors cursor-pointer ${location.pathname === '/size-chart' || location.pathname === '/tracking'
                     ? 'text-zinc-50 font-bold'
                     : 'text-zinc-400 font-semibold hover:text-zinc-50'
-                }`}
+                  }`}
+                style={navStyle}
               >
                 Panduan
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              <div 
-                className={`absolute top-full -left-4 pt-2 w-56 z-50 transition-all duration-200 ${
-                  dropdownOpen 
-                    ? 'opacity-100 translate-y-0 pointer-events-auto' 
+              <div
+                className={`absolute top-full -left-4 pt-2 w-56 z-50 transition-all duration-200 ${dropdownOpen
+                    ? 'opacity-100 translate-y-0 pointer-events-auto'
                     : 'opacity-0 translate-y-2 pointer-events-none'
-                }`}
+                  }`}
               >
                 <div className="bg-[#1A1819] border border-zinc-800/80 shadow-2xl p-2 rounded-none">
                   <Link
@@ -150,38 +153,36 @@ const Navbar = () => {
 
             <Link
               to="/produk"
-              className={`text-[17px] tracking-wide transition-colors ${
-                location.pathname === '/produk'
+              className={`text-[15px] tracking-wide transition-colors ${location.pathname === '/produk'
                   ? 'text-zinc-50 font-bold'
                   : 'text-zinc-400 font-semibold hover:text-zinc-50'
-              }`}
+                }`}
+              style={navStyle}
             >
               Produk
             </Link>
 
-            <a
-              href="#tentang"
-              onClick={(e) => handleNavClick(e, '/', 'tentang')}
-              className={`text-[17px] tracking-wide transition-colors ${
-                location.hash === '#tentang'
+            <Link
+              to="/tentang"
+              className={`text-[15px] tracking-wide transition-colors ${location.pathname === '/tentang'
                   ? 'text-zinc-50 font-bold'
                   : 'text-zinc-400 font-semibold hover:text-zinc-50'
-              }`}
+                }`}
+              style={navStyle}
             >
               Tentang
-            </a>
+            </Link>
 
-            <a
-              href="#kontak"
-              onClick={(e) => handleNavClick(e, '/', 'kontak')}
-              className={`text-[17px] tracking-wide transition-colors ${
-                location.hash === '#kontak'
+            <Link
+              to="/kontak"
+              className={`text-[15px] tracking-wide transition-colors ${location.pathname === '/kontak'
                   ? 'text-zinc-50 font-bold'
                   : 'text-zinc-400 font-semibold hover:text-zinc-50'
-              }`}
+                }`}
+              style={navStyle}
             >
               Kontak
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile toggle */}
@@ -202,6 +203,7 @@ const Navbar = () => {
             <Link
               to="/"
               className="block text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:text-zinc-50"
+              style={navStyle}
             >
               Home
             </Link>
@@ -212,6 +214,7 @@ const Navbar = () => {
                 type="button"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
                 className="flex items-center justify-between w-full text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:text-zinc-50"
+                style={navStyle}
               >
                 <span>Panduan</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileDropdownOpen ? 'rotate-180' : ''}`} />
@@ -244,25 +247,28 @@ const Navbar = () => {
             <Link
               to="/produk"
               className="block text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:text-zinc-50"
+              style={navStyle}
             >
               Produk
             </Link>
 
-            <a
-              href="#tentang"
-              onClick={(e) => { setOpen(false); handleNavClick(e, '/', 'tentang'); }}
+            <Link
+              to="/tentang"
+              onClick={() => setOpen(false)}
               className="block text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:text-zinc-50"
+              style={navStyle}
             >
               Tentang Kami
-            </a>
+            </Link>
 
-            <a
-              href="#kontak"
-              onClick={(e) => { setOpen(false); handleNavClick(e, '/', 'kontak'); }}
+            <Link
+              to="/kontak"
+              onClick={() => setOpen(false)}
               className="block text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:text-zinc-50"
+              style={navStyle}
             >
               Kontak
-            </a>
+            </Link>
           </div>
         </div>
       )}

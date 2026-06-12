@@ -21,12 +21,15 @@ const ProductsShowcase = () => {
         <div className="flex items-end justify-between mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="h-px w-8 bg-cherry-500" />
-              <span className="text-[10px] text-zinc-600 tracking-[0.3em] uppercase">Top Picks</span>
+              <span className="h-px w-8" style={{ background: '#ef2020' }} />
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+              >Top Picks</span>
             </div>
             <h2
               className="text-5xl sm:text-6xl text-zinc-50"
-              style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
             >
               PRODUK UNGGULAN
             </h2>
@@ -68,10 +71,13 @@ const ProductsShowcase = () => {
                   </span>
                 </div>
               </div>
-              <p className="text-sm font-medium text-zinc-400 group-hover:text-zinc-50 transition-colors truncate">{product.nama_produk}</p>
+              <p
+                className="text-sm text-zinc-400 group-hover:text-zinc-50 transition-colors truncate"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+              >{product.nama_produk}</p>
               <p
                 className="text-base text-zinc-50 mt-0.5"
-                style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
               >
                 {formatCurrency(product.harga_estimasi || product.harga)}
               </p>

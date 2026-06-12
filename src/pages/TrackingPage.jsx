@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Search, Package, CheckCircle, Clock, AlertCircle, RefreshCcw } from 'lucide-react';
 import { getLeadByTracking } from '../services/leadService';
+import { getOrderByTracking } from '../services/orderService';
 import { normalizeWhatsApp } from '../utils/validators';
 import { formatDate } from '../utils/formatters';
 import { ORDER_STATUS_LIST } from '../config/constants';
 import Badge from '../components/common/Badge';
 
-// Auto-refresh interval for live lead status (60 seconds)
+// Auto-refresh interval for live status (60 seconds)
 const LIVE_REFRESH_INTERVAL = 60000;
 
 const StatusTimeline = ({ currentStatus }) => {
@@ -74,6 +75,39 @@ const StatusTimeline = ({ currentStatus }) => {
   );
 };
 
+// Standardize both Lead and Order structures into a single format for the UI
+const normalizeTrackingData = (data, type) => {
+  if (!data) return null;
+  if (type === 'order') {
+    let statusProduksi = data.status || 'Konsultasi';
+    if (statusProduksi === 'Produksi') statusProduksi = 'Masuk Produksi';
+    else if (statusProduksi === 'Menunggu Konfirmasi') statusProduksi = 'Menunggu Detail Pesanan';
+    else if (statusProduksi === 'DP Diterima') statusProduksi = 'Menunggu DP';
+
+    return {
+      lead_id: data.order_id,
+      tanggal: data.tanggal,
+      nama_pelanggan: data.nama,
+      whatsapp: data.whatsapp,
+      nama_produk: data.produk,
+      status_produksi: statusProduksi,
+      catatan_admin: data.catatan_admin || '',
+      type: 'order'
+    };
+  } else {
+    return {
+      lead_id: data.lead_id,
+      tanggal: data.tanggal,
+      nama_pelanggan: data.nama_pelanggan,
+      whatsapp: data.whatsapp,
+      nama_produk: data.nama_produk,
+      status_produksi: data.status_produksi || 'Konsultasi',
+      catatan_admin: data.catatan_admin || '',
+      type: 'lead'
+    };
+  }
+};
+
 const TrackingPage = () => {
   const [orderId, setOrderId] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
@@ -98,11 +132,14 @@ const TrackingPage = () => {
 
   const liveRefresh = useCallback(async () => {
     if (!currentOrderRef.current) return;
-    const { id, wa } = currentOrderRef.current;
+    const { id, wa, type } = currentOrderRef.current;
 
     setLiveRefreshing(true);
     try {
-      const result = await getLeadByTracking(id, wa);
+      const fetchFunc = type === 'order' ? getOrderByTracking : getLeadByTracking;
+      const rawResult = await fetchFunc(id, wa);
+      const result = normalizeTrackingData(rawResult, type);
+      
       if (result) {
         setOrder((prev) => {
           // Check if status changed
@@ -154,19 +191,24 @@ const TrackingPage = () => {
 
     const normalizedId = orderId.trim().toUpperCase();
     const normalizedWa = normalizeWhatsApp(whatsapp.trim());
+    const trackingType = normalizedId.startsWith('ORD-') ? 'order' : 'lead';
 
     try {
-      const result = await getLeadByTracking(normalizedId, normalizedWa);
+      const fetchFunc = trackingType === 'order' ? getOrderByTracking : getLeadByTracking;
+      const rawResult = await fetchFunc(normalizedId, normalizedWa);
+      const result = normalizeTrackingData(rawResult, trackingType);
+      
       if (result) {
         setOrder(result);
         setLastStatus(result.status_produksi);
-        currentOrderRef.current = { id: normalizedId, wa: normalizedWa };
+        currentOrderRef.current = { id: normalizedId, wa: normalizedWa, type: trackingType };
         startLiveRefresh();
       } else {
         setNotFound(true);
         currentOrderRef.current = null;
       }
-    } catch {
+    } catch (err) {
+      console.error('Tracking error:', err);
       setNotFound(true);
       currentOrderRef.current = null;
     } finally {

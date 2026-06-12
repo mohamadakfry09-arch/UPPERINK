@@ -372,17 +372,23 @@ const SizeChartPage = () => {
       <div className="border-b border-white/[0.05] py-16 mb-12">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-px w-8 bg-cherry-500" />
-            <span className="text-[10px] text-zinc-500 tracking-[0.3em] uppercase">PANDUAN UKURAN</span>
-            <span className="h-px w-8 bg-cherry-500" />
+            <span className="h-px w-8" style={{ background: '#ef2020' }} />
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+            >PANDUAN UKURAN</span>
+            <span className="h-px w-8" style={{ background: '#ef2020' }} />
           </div>
-          <h1 
-            className="text-4xl md:text-6xl text-zinc-50 tracking-wider mb-4" 
-            style={{ fontFamily: "'Bebas Neue', Impact, sans-serif" }}
+          <h1
+            className="text-4xl md:text-6xl text-zinc-50 mb-4"
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
           >
             SIZE CHART & SPESIFIKASI
           </h1>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed">
+          <p
+            className="max-w-xl mx-auto text-sm leading-relaxed"
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+          >
             Panduan standar ukuran pakaian konveksi UPPERINK untuk memudahkan kecocokan fitting pemesanan Anda
           </p>
         </div>
@@ -408,9 +414,9 @@ const SizeChartPage = () => {
                 </div>
                 
                 {/* Category Title */}
-                <h3 
-                  className="text-lg font-display text-zinc-100 mb-4 tracking-widest text-center border-b border-zinc-800 pb-3"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                <h3
+                  className="text-base text-zinc-100 mb-4 tracking-widest text-center border-b border-zinc-800 pb-3 uppercase"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700 }}
                 >
                   {chart.title}
                 </h3>

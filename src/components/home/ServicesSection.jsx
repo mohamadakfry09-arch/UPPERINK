@@ -100,12 +100,15 @@ const ServicesSection = () => {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-3">
-            <span className="h-px w-8 bg-cherry-500" />
-            <span className="text-[10px] text-zinc-600 tracking-[0.3em] uppercase">Apa yang Kami Buat</span>
+            <span className="h-px w-8" style={{ background: '#ef2020' }} />
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+            >Apa yang Kami Buat</span>
           </div>
           <h2
             className="text-5xl sm:text-7xl text-zinc-50"
-            style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
           >
             KATEGORI PRODUK
           </h2>
@@ -123,28 +126,34 @@ const ServicesSection = () => {
               {/* Hover cherry overlay */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: 'rgba(129,1,0,0.06)' }}
+                style={{ background: 'rgba(239,32,32,0.06)' }}
               />
               {/* Red left border on hover */}
-              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-cherry-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-400 origin-top" />
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] scale-y-0 group-hover:scale-y-100 transition-transform duration-400 origin-top" style={{ background: '#ef2020' }} />
 
               {/* Icon */}
-              <div className="mb-5 text-zinc-600 group-hover:text-cherry-500 transition-colors duration-300 group-hover:scale-110 transition-transform origin-left">
+              <div className="mb-5 text-white group-hover:text-white transition-colors duration-300 group-hover:scale-110 transition-transform origin-left">
                 <Icon />
               </div>
 
               {/* Label */}
-              <h3 className="text-sm font-bold text-zinc-300 group-hover:text-zinc-50 transition-colors mb-2 tracking-wide">
+              <h3
+                className="text-sm mb-2 tracking-wide text-zinc-300 group-hover:text-zinc-50 transition-colors"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+              >
                 {label}
               </h3>
-              <p className="text-[11px] text-zinc-700 group-hover:text-zinc-500 transition-colors leading-relaxed">
+              <p
+                className="text-[11px] leading-relaxed group-hover:text-zinc-400 transition-colors"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+              >
                 {desc}
               </p>
 
               {/* Arrow */}
               <div className="mt-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-[10px] text-cherry-500 uppercase tracking-widest">Lihat</span>
-                <ArrowRight className="w-3 h-3 text-cherry-500" />
+                <span className="text-[10px] uppercase tracking-widest" style={{ color: '#ef2020' }}>Lihat</span>
+                <ArrowRight className="w-3 h-3" style={{ color: '#ef2020' }} />
               </div>
             </Link>
           ))}

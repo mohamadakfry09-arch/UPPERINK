@@ -5,6 +5,7 @@ import { getProducts } from '../services/productService';
 import { buildWhatsAppUrl, PRODUCT_CATEGORIES } from '../config/constants';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import { createLead } from '../services/leadService';
+import WhatsAppIcon from '../components/common/WhatsAppIcon';
 
 const generateLeadId = () => {
   const now = new Date();
@@ -172,7 +173,7 @@ const ProductDetailPage = () => {
                 className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-8 py-3.5 -skew-x-12 transition-all duration-300 shadow-[0_8px_24px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.45)] hover:-translate-y-0.5 group cursor-pointer"
               >
                 <span className="skew-x-12 flex items-center gap-2 text-sm tracking-wider uppercase">
-                  <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
+                  <WhatsAppIcon className="w-5 h-5 text-white" />
                   Hubungi via WhatsApp
                 </span>
               </button>

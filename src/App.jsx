@@ -15,6 +15,8 @@ const OrderPage = lazy(() => import('./pages/OrderPage'));
 const TrackingPage = lazy(() => import('./pages/TrackingPage'));
 const SizeChartPage = lazy(() => import('./pages/SizeChartPage'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const TentangPage = lazy(() => import('./pages/TentangPage'));
+const KontakPage = lazy(() => import('./pages/KontakPage'));
 
 // Admin pages
 const LoginPage = lazy(() => import('./pages/admin/LoginPage'));
@@ -65,6 +67,12 @@ function App() {
             } />
             <Route path="/produk/:id" element={
               <CustomerLayout><ProductDetailPage /></CustomerLayout>
+            } />
+            <Route path="/tentang" element={
+              <CustomerLayout><TentangPage /></CustomerLayout>
+            } />
+            <Route path="/kontak" element={
+              <CustomerLayout><KontakPage /></CustomerLayout>
             } />
 
             {/* Admin Routes */}

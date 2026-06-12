@@ -12,7 +12,17 @@ const getLocalLeads = () => {
     localStorage.setItem('upperink_leads', JSON.stringify(dummyLeads));
     return dummyLeads;
   }
-  return JSON.parse(local);
+  try {
+    const parsed = JSON.parse(local);
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      localStorage.setItem('upperink_leads', JSON.stringify(dummyLeads));
+      return dummyLeads;
+    }
+    return parsed;
+  } catch (e) {
+    localStorage.setItem('upperink_leads', JSON.stringify(dummyLeads));
+    return dummyLeads;
+  }
 };
 
 const saveLocalLeads = (leads) => {

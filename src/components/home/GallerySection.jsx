@@ -34,17 +34,30 @@ const GallerySection = () => {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="h-px w-8 bg-cherry-500" />
-              <span className="text-[10px] text-zinc-600 tracking-[0.3em] uppercase">Portfolio</span>
+              <span className="h-px w-8" style={{ background: '#ef2020' }} />
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400, color: '#a0a0a0' }}
+              >Portfolio</span>
             </div>
             <h2
               className="text-5xl sm:text-7xl text-zinc-50"
-              style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", letterSpacing: '0.03em' }}
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, letterSpacing: '0.02em' }}
             >
               GALERI PRODUKSI
             </h2>
           </div>
-          <Link to="/produk" className="btn-primary self-start sm:self-end">
+          <Link
+            to="/produk"
+            className="self-start sm:self-end inline-flex items-center gap-2 px-6 py-3 text-white text-xs uppercase tracking-widest transition-all duration-200 hover:opacity-80"
+            style={{
+              fontFamily: 'Helvetica, Arial, sans-serif',
+              fontWeight: 700,
+              background: '#ef2020',
+              borderRadius: 0,
+              letterSpacing: '2px',
+            }}
+          >
             All Product
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -79,13 +92,16 @@ const GallerySection = () => {
                 style={{ background: 'linear-gradient(to top, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.2) 60%, transparent 100%)' }}
               >
                 {item.judul && (
-                  <p className="text-zinc-50 text-sm font-semibold tracking-wide translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <p
+                    className="text-zinc-50 text-sm tracking-wide translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}
+                  >
                     {item.judul}
                   </p>
                 )}
               </div>
               {/* Red corner accent on hover */}
-              <div className="absolute top-0 right-0 w-0 h-0 border-t-[20px] border-r-[20px] border-t-cherry-500 border-r-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 right-0 w-0 h-0 border-t-[20px] border-r-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ borderTopColor: '#ef2020', borderRightColor: 'transparent' }} />
             </div>
           ))}
         </div>
