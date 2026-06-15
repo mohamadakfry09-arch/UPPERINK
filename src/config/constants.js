@@ -80,7 +80,7 @@ export const ADMIN_TOKEN_KEY = 'upperink_admin_token';
 export const COMPANY_INFO = {
   name: import.meta.env.VITE_COMPANY_NAME || 'UPPERINK',
   tagline: import.meta.env.VITE_COMPANY_TAGLINE || 'Konveksi Baju Berkualitas Tinggi',
-  address: import.meta.env.VITE_COMPANY_ADDRESS || 'Jl. Contoh No. 123',
+  address: import.meta.env.VITE_COMPANY_ADDRESS || 'Sebrang Masjid Ar Rahman, Jl, RT.01/RW.01, Sukamulya, Kec. Cigugur, Kabupaten Kuningan, Jawa Barat 45552',
   whatsapp: import.meta.env.VITE_WA_ADMIN || '6281234567890',
   email: 'admin@UPPERINK.id',
   instagram: '@upperink_id',

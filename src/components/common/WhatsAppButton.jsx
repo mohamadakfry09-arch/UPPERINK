@@ -54,7 +54,7 @@ const WhatsAppButton = () => {
         className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] bg-[#25D366]/90 hover:bg-[#25D366] backdrop-blur-sm border border-white/10 hover:scale-110 active:scale-95 transition-all duration-300 ease-out animate-float"
         style={{ animationDuration: '4s' }}
       >
-        <WhatsAppIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+        <WhatsAppIcon className="w-6 h-6 md:w-7 md:h-7" white />
       </div>
 
       {/* Tooltip - Desktop Only */}
