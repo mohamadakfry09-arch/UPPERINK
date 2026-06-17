@@ -133,32 +133,7 @@ const KontakPage = () => {
     },
   ];
 
-  const channels = [
-    {
-      svg: <WaSvg size={40} />,
-      title: 'WhatsApp',
-      desc: 'Cara tercepat untuk konsultasi dan order. Respon dalam hitungan menit.',
-      action: 'Chat Sekarang',
-      href: waUrl,
-      highlight: true,
-    },
-    {
-      svg: <InstagramSvg size={40} />,
-      title: 'Instagram',
-      desc: 'Lihat portofolio produksi terbaru dan update produk kami di Instagram.',
-      action: 'Follow Kami',
-      href: `https://instagram.com/${(COMPANY_INFO.instagram || '@upperink_id').replace('@', '')}`,
-      highlight: false,
-    },
-    {
-      svg: <GmailSvg size={40} />,
-      title: 'Email',
-      desc: 'Untuk pertanyaan formal, kerjasama, atau inquiry dalam jumlah besar.',
-      action: 'Kirim Email',
-      href: `mailto:${COMPANY_INFO.email}`,
-      highlight: false,
-    },
-  ];
+
 
   return (
     <div style={{ background: '#090909', fontFamily: HF }}>
@@ -210,41 +185,7 @@ const KontakPage = () => {
         </div>
       </section>
 
-      {/* ── CHANNELS ─────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: '#1A1819' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
-            {channels.map(({ svg, title, desc, action, href, highlight }) => (
-              <a
-                key={title}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex flex-col p-8 lg:p-10 transition-all duration-300"
-                style={{ background: highlight ? 'rgba(239,32,32,0.07)' : '#1A1819' }}
-              >
-                <div
-                  className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-500 origin-left"
-                  style={{ background: '#ef2020', transform: highlight ? 'scaleX(1)' : 'scaleX(0)' }}
-                />
-                <div
-                  className="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  style={{ background: '#ef2020' }}
-                />
-                <div className="mb-6 group-hover:scale-110 transition-transform duration-300 origin-left" style={{ width: 40, height: 40 }}>
-                  {svg}
-                </div>
-                <h3 className="text-zinc-50 font-bold text-lg uppercase tracking-wide mb-3">{title}</h3>
-                <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: '#a0a0a0' }}>{desc}</p>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest" style={{ color: '#ffffff', fontWeight: 700 }}>
-                  {action}
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── MAIN CONTACT ─────────────────────────────────────────────── */}
       <section className="py-24 relative overflow-hidden" style={{ background: '#090909' }}>
@@ -310,38 +251,7 @@ const KontakPage = () => {
             {/* Right — WhatsApp CTA + Maps */}
             <div className="space-y-6">
 
-              {/* WhatsApp Card */}
-              <div className="relative overflow-hidden" style={{ background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.2)' }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: '#16a34a' }} />
-                <div className="p-8">
-                  <div className="flex items-start gap-5">
-                    <div
-                      className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center"
-                      style={{ background: 'rgba(37,211,102,0.15)' }}
-                    >
-                      <WaSvg size={44} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-white font-bold text-lg uppercase tracking-wide mb-2">
-                        Chat via WhatsApp
-                      </h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                        Cara paling cepat &amp; mudah untuk konsultasi dan order. Kami biasanya membalas dalam beberapa menit.
-                      </p>
-                      <a
-                        href={waUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-6 py-3 text-white text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90"
-                        style={{ fontWeight: 700, background: '#16a34a' }}
-                      >
-                        <WaSvg size={20} />
-                        Chat Sekarang
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
 
               {/* Google Maps Embed */}
               <div className="relative overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
